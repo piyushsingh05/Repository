@@ -26,5 +26,60 @@ public class User {
     @ElementCollection
     private Set<String> favoriteArticles = new HashSet<>();
 
+    public User(Long userId, String username, String password, List<String> preferences, Set<String> readArticles, Set<String> favoriteArticles) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.preferences = preferences;
+        this.readArticles = readArticles;
+        this.favoriteArticles = favoriteArticles;
+    }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<String> getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(List<String> preferences) {
+        this.preferences = preferences;
+    }
+
+    public Set<String> getReadArticles() {
+        return readArticles;
+    }
+
+    public void setReadArticles(Set<String> readArticles) {
+        this.readArticles = readArticles;
+    }
+
+    public Set<String> getFavoriteArticles() {
+        return favoriteArticles;
+    }
+
+    public void setFavoriteArticles(Set<String> favoriteArticles) {
+        this.favoriteArticles = favoriteArticles;
+    }
 }
