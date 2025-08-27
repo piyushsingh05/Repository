@@ -16,23 +16,14 @@ public class User {
     private String username;
     private String password;
 
+    @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
+    private UserPreferences  preferences;
 
-    @ElementCollection
-    private List<String> preferences;
-
-    @ElementCollection
-    private Set<String> readArticles = new HashSet<>();
-
-    @ElementCollection
-    private Set<String> favoriteArticles = new HashSet<>();
-
-    public User(Long userId, String username, String password, List<String> preferences, Set<String> readArticles, Set<String> favoriteArticles) {
+    public User(Long userId, String username, String password, UserPreferences preferences) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.preferences = preferences;
-        this.readArticles = readArticles;
-        this.favoriteArticles = favoriteArticles;
     }
 
     public Long getUserId() {
@@ -59,27 +50,11 @@ public class User {
         this.password = password;
     }
 
-    public List<String> getPreferences() {
+    public UserPreferences getPreferences() {
         return preferences;
     }
 
-    public void setPreferences(List<String> preferences) {
+    public void setPreferences(UserPreferences preferences) {
         this.preferences = preferences;
-    }
-
-    public Set<String> getReadArticles() {
-        return readArticles;
-    }
-
-    public void setReadArticles(Set<String> readArticles) {
-        this.readArticles = readArticles;
-    }
-
-    public Set<String> getFavoriteArticles() {
-        return favoriteArticles;
-    }
-
-    public void setFavoriteArticles(Set<String> favoriteArticles) {
-        this.favoriteArticles = favoriteArticles;
     }
 }
