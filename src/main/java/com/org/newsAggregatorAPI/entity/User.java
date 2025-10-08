@@ -1,10 +1,11 @@
 package com.org.newsAggregatorAPI.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+
 
 @Entity
 @Table(name = "users")
@@ -17,14 +18,18 @@ public class User {
     private String username;
     private String password;
 
-    @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
-    private UserPreferences  preferences;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private Preferences preferences;;
 
-    public User(Long userId, String username, String password, UserPreferences preferences) {
-        this.userId = userId;
-        this.username = username;
+    public User(String password, Preferences preferences, Long userId, String username) {
         this.password = password;
         this.preferences = preferences;
+        this.userId = userId;
+        this.username = username;
+    }
+
+    public User() {
     }
 
     public Long getUserId() {
@@ -51,11 +56,11 @@ public class User {
         this.password = password;
     }
 
-    public UserPreferences getPreferences() {
+    public Preferences getPreferences() {
         return preferences;
     }
 
-    public void setPreferences(UserPreferences preferences) {
+    public void setPreferences(Preferences preferences) {
         this.preferences = preferences;
     }
 }
