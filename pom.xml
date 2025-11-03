@@ -22,7 +22,6 @@
   </properties>
 
   <dependencies>
-    <!-- 🌱 Core Spring Boot -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -76,7 +75,6 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- 🤖 Google API Clients (✅ Stable + Available) -->
     <dependency>
       <groupId>com.google.api-client</groupId>
       <artifactId>google-api-client</artifactId>
@@ -101,14 +99,12 @@
       <version>1.46.3</version>
     </dependency>
 
-    <!-- 📘 Swagger UI -->
     <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
       <version>2.1.0</version>
     </dependency>
 
-    <!-- 🧪 Testing -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -125,7 +121,6 @@
     </plugins>
   </build>
 
-  <!-- ✅ Google + Maven Central Repositories -->
   <repositories>
     <repository>
       <id>google</id>
